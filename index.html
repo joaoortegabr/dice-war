@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+
+    <div id="container">
+        <div id="attacker" class="player">
+            <button id="roll-attacker" class="btn-atk" onclick="rollAtk()" style="transform: rotate(180deg);">ROLL - ATTACKER</button>
+            <div class="dice-set">
+                <div id="da1" class="die-opt">
+                    <input type="checkbox" id="atk-d1" class="chkbox atk-chkbox" />
+                    <span id="atkimg-d1" class="die bg"></span>
+                </div>
+                <div id="da2" class="die-opt">
+                    <input type="checkbox" id="atk-d2" class="chkbox atk-chkbox" />
+                    <span id="atkimg-d2" class="die bg"></span>
+                </div>
+                <div id="da3" class="die-opt">
+                    <input type="checkbox" id="atk-d3" class="chkbox atk-chkbox" />
+                    <span id="atkimg-d3" class="die bg"></span>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <button id="reset-btn" onclick="reset()" style="transform: rotate(180deg);">RESET</button>
+        <hr />
+
+        <div id="defender" class="player">
+            <div class="dice-set">
+                <div id="dd1" class="die-opt">
+                    <span id="defimg-d1" class="die bg"></span>
+                    <input type="checkbox" id="def-d1" class="chkbox def-chkbox" />
+                </div>
+                <div id="dd2" class="die-opt">
+                    <span id="defimg-d2" class="die bg"></span>
+                    <input type="checkbox" id="def-d2" class="chkbox def-chkbox" />
+                </div>
+                <div id="dd3" class="die-opt">
+                    <span id="defimg-d3" class="die bg"></span>
+                    <input type="checkbox" id="def-d3" class="chkbox def-chkbox" />
+                </div>
+            </div>
+            <button id="roll-defender" class="btn-def" onclick="rollDef()">ROLL - DEFENDER</button>
+        </div>
+    </div>
+   
+    <script src="./script.js"></script>
+</body>
+</html>
