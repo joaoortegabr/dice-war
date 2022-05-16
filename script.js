@@ -1,4 +1,4 @@
-// dice
+// dice images
 const atkd1 = document.getElementById("atkimg-d1");
 const atkd2 = document.getElementById("atkimg-d2");
 const atkd3 = document.getElementById("atkimg-d3");
@@ -6,7 +6,7 @@ const defd1 = document.getElementById("defimg-d1");
 const defd2 = document.getElementById("defimg-d2");
 const defd3 = document.getElementById("defimg-d3");
 
-// die-set
+// dice set
 const da1 = document.getElementById("da1");
 const da2 = document.getElementById("da2");
 const da3 = document.getElementById("da3");
@@ -24,7 +24,7 @@ function rollAtk() {
     reset();
     let numberOfAtkDice = document.querySelector('input[name="atk-qty"]:checked').value;
     if (numberOfAtkDice > 0) {
-        for (i = 0; i < numberOfAtkDice; i++) {
+        for (let i = 0; i < numberOfAtkDice; i++) {
             let num = generateRandomNumber(1, 6);
             atkRound.push(num);
         }
@@ -41,7 +41,7 @@ function rollDef() {
         clearDefDice();
         let numberOfDefDice = document.querySelector('input[name="def-qty"]:checked').value;
         if (numberOfDefDice > 0) {
-            for (i = 0; i < numberOfDefDice; i++) {
+            for (let i = 0; i < numberOfDefDice; i++) {
                 let num = generateRandomNumber(1, 6);
                 defRound.push(num);
             }
@@ -101,12 +101,10 @@ function generateRandomNumber(min, max) {
 }
 
 function checkWinners() {
-    if (atkRound[0] && defRound[0]) {
-        if (atkRound[0] > defRound[0]) {
-            da1.classList.add('winner');
-        } else {
-            dd1.classList.add('winner');
-        }
+    if (atkRound[0] > defRound[0]) {
+        da1.classList.add('winner');
+    } else {
+        dd1.classList.add('winner');
     }
 
     if (atkRound[1] && defRound[1]) {
@@ -116,7 +114,7 @@ function checkWinners() {
             dd2.classList.add('winner');
         }
     } else if (atkRound[1] && !defRound[1]) {
-        da2.classList.add('winner')
+        da2.classList.add('winner');
     }
     
     if (atkRound[2] && defRound[2]) {
@@ -126,7 +124,7 @@ function checkWinners() {
             dd3.classList.add('winner');
         }
     } else if (atkRound[2] && !defRound[2]) {
-        da3.classList.add('winner')
+        da3.classList.add('winner');
     }
 }
 
