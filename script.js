@@ -14,38 +14,43 @@ const dd1 = document.getElementById("dd1");
 const dd2 = document.getElementById("dd2");
 const dd3 = document.getElementById("dd3");
 
+const btnDef = document.getElementById('roll-defender');
+btnDef.disabled = true;
 let atkRound = [];
 let defRound = [];
+let attacked = false;
 
 function rollAtk() {
-    clearAtkDice();
-    let checkboxes = document.querySelectorAll('.atk-chkbox:checked');
-    let numberOfAtkDice = checkboxes.length;
+    reset();
+    let numberOfAtkDice = document.querySelector('input[name="atk-qty"]:checked').value;
     if (numberOfAtkDice > 0) {
         for (i = 0; i < numberOfAtkDice; i++) {
             let num = generateRandomNumber(1, 6);
             atkRound.push(num);
         }
-        atkRound.sort();
-        atkRound.reverse();
+        atkRound.sort().reverse();
     }
     setAtkDie(atkRound[0], atkRound[1], atkRound[2]);
+    btnDef.disabled = false;
+    attacked = true;
 }
 
 function rollDef() {
-    clearDefDice();
-    let checkboxes = document.querySelectorAll('.def-chkbox:checked');
-    let numberOfDefDice = checkboxes.length;
-    if (numberOfDefDice > 0) {
-        for (i = 0; i < numberOfDefDice; i++) {
-            let num = generateRandomNumber(1, 6);
-            defRound.push(num);
+    if (attacked == true) {
+
+        clearDefDice();
+        let numberOfDefDice = document.querySelector('input[name="def-qty"]:checked').value;
+        if (numberOfDefDice > 0) {
+            for (i = 0; i < numberOfDefDice; i++) {
+                let num = generateRandomNumber(1, 6);
+                defRound.push(num);
+            }
+            defRound.sort().reverse();
         }
-        defRound.sort();
-        defRound.reverse();
+        setDefDie(defRound[0], defRound[1], defRound[2]);
+        checkWinners();
+        btnDef.disabled = true;
     }
-    setDefDie(defRound[0], defRound[1], defRound[2]);
-    checkWinners();
 }
 
 function clearAtkDice() {
@@ -57,6 +62,7 @@ function clearAtkDice() {
     atkd1.classList.add('die', 'bg');
     atkd2.classList.add('die', 'bg');
     atkd3.classList.add('die', 'bg');
+    attacked = false;
 }
 
 function clearDefDice() {
@@ -68,12 +74,14 @@ function clearDefDice() {
     defd1.classList.add('die', 'bg');
     defd2.classList.add('die', 'bg');
     defd3.classList.add('die', 'bg');
+    btnDef.disabled = false;
 }
 
 function reset() {
     clearAtkDice();
     clearDefDice();
-    clearWinners()
+    clearWinners();
+    btnDef.disabled = true;
 }
 
 function setAtkDie(num0, num1, num2) {
@@ -93,20 +101,32 @@ function generateRandomNumber(min, max) {
 }
 
 function checkWinners() {
-    if (atkRound[0] > defRound[0]) {
-        da1.classList.add('winner');
-    } else {
-        dd1.classList.add('winner');
+    if (atkRound[0] && defRound[0]) {
+        if (atkRound[0] > defRound[0]) {
+            da1.classList.add('winner');
+        } else {
+            dd1.classList.add('winner');
+        }
     }
-    if (atkRound[1] > defRound[1]) {
-        da2.classList.add('winner');
-    } else {
-        dd2.classList.add('winner');
+
+    if (atkRound[1] && defRound[1]) {
+        if (atkRound[1] > defRound[1]) {
+            da2.classList.add('winner');
+        } else {
+            dd2.classList.add('winner');
+        }
+    } else if (atkRound[1] && !defRound[1]) {
+        da2.classList.add('winner')
     }
-    if (atkRound[2] > defRound[2]) {
-        da3.classList.add('winner');
-    } else {
-        dd3.classList.add('winner');
+    
+    if (atkRound[2] && defRound[2]) {
+        if (atkRound[2] > defRound[2]) {
+            da3.classList.add('winner');
+        } else {
+            dd3.classList.add('winner');
+        }
+    } else if (atkRound[2] && !defRound[2]) {
+        da3.classList.add('winner')
     }
 }
 

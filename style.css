@@ -8,20 +8,21 @@ body {
     display: flex;
     justify-content: center;
     background-color: #f7f7f7;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
 }
 
-hr {
-    width: 100%;
-    margin: 10px 0;
+p {
+    margin: 10px 0 0 0;
 }
 
 #container {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    justify-content: space-around;
     max-width: 420px;
-    margin: 10px;
-    padding: 10px;
+    height: 100vh;
 }
 
 .player {
@@ -29,12 +30,15 @@ hr {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px;
 }
 
-.dice-set {
+.line {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .die-opt {
@@ -53,15 +57,13 @@ hr {
     background-image: url('./img/none.png'); 
 }
 
-.chkbox, .atk-chkbox:checked, .def-chkbox:checked {
-    width: 150%;
-    height: 20px;
-    cursor: pointer;
+.reverse {
+    transform: rotate(180deg);
 }
 
 button {
     width: 100%;
-    margin: 15px 20px;
+    margin: 0 25px;
     padding: 10px;
     border-radius: 4px;
     border: 0px;
@@ -70,12 +72,20 @@ button {
     font-weight: bold;
 }
 
+input[radio] {
+    margin: 3px;
+}
+
 .btn-atk {
     background-color: #da0202;
 }
 
 .btn-def {
     background-color: #f6ff00;
+}
+
+.btn-reset {
+    margin: 10px 0;
 }
 
 .bg {
