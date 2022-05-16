@@ -10,44 +10,8 @@
 <body>
 
     <div id="container">
-        <div id="attacker" class="player reverse">
 
-            <div class="line">
-                <div id="da1" class="die-opt">
-                    <span id="atkimg-d1" class="die bg"></span>
-                </div>
-                <div id="da2" class="die-opt">
-                    <span id="atkimg-d2" class="die bg"></span>
-                </div>
-                <div id="da3" class="die-opt">
-                    <span id="atkimg-d3" class="die bg"></span>
-                </div>
-            </div>
-
-            <div class="dice-selector">
-                <p>Quantidade de Dados</p>
-                <div class="line">
-                    <div class="die-opt">
-                        <input type="radio" id="atk-d1" name="atk-qty" class="radio" value="1" checked />
-                        <label for="atk-d1">1</label>
-                    </div>
-                    <div class="die-opt">
-                        <input type="radio" id="atk-d2" name="atk-qty" class="radio" value="2" />
-                        <label for="atk-d2">2</label>
-                    </div>
-                    <div id="da1" class="die-opt">
-                        <input type="radio" id="atk-d3" name="atk-qty" class="radio" value="3" />
-                        <label for="atk-d3">3</label>
-                    </div>
-                </div>
-            </div>
-
-            <button id="roll-attacker" class="btn-atk" onclick="rollAtk()">ROLL - ATTACKER</button>
-        </div>
-
-        <button id="reset-btn" class="btn-reset" onclick="reset()" style="transform: rotate(180deg);">RESET</button>
-
-        <div id="defender" class="player">
+        <div id="defender" class="player reverse">
 
             <div class="line">
                 <div id="dd1" class="die-opt">
@@ -81,6 +45,44 @@
 
             <button id="roll-defender" class="btn-def" onclick="rollDef()">ROLL - DEFENDER</button>
         </div>
+
+        <button id="reset-btn" class="btn-reset" onclick="reset()" style="transform: rotate(180deg);">RESET</button>
+
+        <div id="attacker" class="player">
+
+            <div class="line">
+                <div id="da1" class="die-opt">
+                    <span id="atkimg-d1" class="die bg"></span>
+                </div>
+                <div id="da2" class="die-opt">
+                    <span id="atkimg-d2" class="die bg"></span>
+                </div>
+                <div id="da3" class="die-opt">
+                    <span id="atkimg-d3" class="die bg"></span>
+                </div>
+            </div>
+
+            <div class="dice-selector">
+                <p>Quantidade de Dados</p>
+                <div class="line">
+                    <div class="die-opt">
+                        <input type="radio" id="atk-d1" name="atk-qty" class="radio" value="1" checked />
+                        <label for="atk-d1">1</label>
+                    </div>
+                    <div class="die-opt">
+                        <input type="radio" id="atk-d2" name="atk-qty" class="radio" value="2" />
+                        <label for="atk-d2">2</label>
+                    </div>
+                    <div id="da1" class="die-opt">
+                        <input type="radio" id="atk-d3" name="atk-qty" class="radio" value="3" />
+                        <label for="atk-d3">3</label>
+                    </div>
+                </div>
+            </div>
+
+            <button id="roll-attacker" class="btn-atk" onclick="rollAtk()">ROLL - ATTACKER</button>
+        </div>
+        
     </div>
    
     <script src="./script.js"></script>
